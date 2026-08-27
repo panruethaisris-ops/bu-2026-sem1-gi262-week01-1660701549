@@ -371,14 +371,14 @@ MonoBehaviour:
   password: Moon
   as03Number: 11
   as04Number: 12
-  as05GuessingNumber: 0
-  as05RandomNumber: 0
+  as05GuessingNumber: 15
+  as05RandomNumber: 10
   as06GuessingNumber: 0
   as06RandomNumber: 0
-  as07Username: 
-  as07Password: 
-  as07Age: 0
-  as07IsPaid: 0
+  as07Username: user
+  as07Password: 1234
+  as07Age: 99
+  as07IsPaid: 1
 --- !u!4 &1734758268
 Transform:
   m_ObjectHideFlags: 0
