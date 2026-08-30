@@ -1,4 +1,6 @@
+using System.Data.Common;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Assignment : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class Assignment : MonoBehaviour
         // As05_IsLeapYear();
         // As06_Calculate();
         // As07_GetSeason();
-        // As08_PurchasingSystemExample();
+         As08_PurchasingSystemExample();
         // As09_RockPaperScissorsExample();
         // As10_CalculateWeaponDamage();
         // As11_DeterminePlayerRank();
@@ -21,42 +23,95 @@ public class Assignment : MonoBehaviour
     public int as01Number;
     public void As01_CheckNumberSign()
     {
-        // TODO: Implement logic to determine sign
-        // Example: Debug.Log("Positive");
-        throw new System.NotImplementedException();
+        if (as01Number > 0)
+        {
+            Debug.Log("positive");
+        }
+        else if (as01Number < 0)
+        {
+            Debug.Log("negative");
+        }
+        else
+        {
+            Debug.Log("zero");
+        }
+
     }
 
     public int as02Day;
     public void As02_GetDayName()
     {
-        // TODO: Implement logic to return day name
-        // Example: Debug.Log("Monday");
-        throw new System.NotImplementedException();
+        switch (as02Day)
+        {
+            case 1: Debug.Log("Monday"); break;
+            case 2: Debug.Log("Tuesday"); break;
+            case 3: Debug.Log("Wednesday"); break;
+            case 4: Debug.Log("Thursday"); break;
+            case 5: Debug.Log("Friday"); break;
+            case 6: Debug.Log("Saturday"); break;
+            case 7: Debug.Log("Sunday"); break;
+            default: Debug.Log("Invalid day"); break;
+        }
     }
 
     public string as03InputPassword;
     public string as03CorrectPassword;
     public void As03_ValidatePassword()
     {
-        // TODO: Implement password validation logic
-        // Example: Debug.Log("True");
-        throw new System.NotImplementedException();
+        if (as03InputPassword == "secret123")
+        {
+            Debug.Log("true");
+        }
+        else
+        {
+            Debug.Log("false");
+        }
     }
 
     public int as04Score;
     public void As04_GetGrade()
     {
-        // TODO: Implement logic to return grade
-        // Example: Debug.Log("A");
-        throw new System.NotImplementedException();
+        if (as04Score >= 80)
+        {
+            Debug.Log("A");
+        }
+        else if (as04Score >= 70)
+        {
+            Debug.Log("B");
+        }
+        else if (as04Score >= 60)
+        {
+            Debug.Log("C");
+        }
+        else if (as04Score >= 50)
+        {
+            Debug.Log("D");
+        }
+        else if (as04Score <= 49)
+        {
+            Debug.Log("F");
+        }
     }
 
     public int as05Year;
     public void As05_IsLeapYear()
     {
-        // TODO: Implement leap year check logic
-        // Example: Debug.Log("True");
-        throw new System.NotImplementedException();
+        if (as05Year % 400 == 0)
+        {
+            Debug.Log("true");
+        }
+        else if (as05Year % 100 == 0)
+        {
+            Debug.Log("false");
+        }
+        else if (as05Year % 4 == 0)
+        {
+            Debug.Log("true");
+        }
+        else
+        {
+            Debug.Log("false");
+        }
     }
 
     public double as06Num1;
@@ -64,17 +119,56 @@ public class Assignment : MonoBehaviour
     public double as06Num2;
     public void As06_Calculate()
     {
-        // TODO: Implement calculator logic
-        // Example: Debug.Log("Result: 42");
-        throw new System.NotImplementedException();
+        double result = 0; //answer
+        switch (as06Op)
+        {
+            case '+':
+                result = as06Num1 + as06Num2;
+                Debug.Log(result);
+                break;
+
+            case '-':
+                result = as06Num1 - as06Num2;
+                Debug.Log(result);
+                break;
+
+            case '*':
+                result = as06Num1 * as06Num2;
+                Debug.Log(result);
+                break;
+
+            case '/':
+                if (as06Num2 == 0)
+                    Debug.Log("Error: Cannot divide by zero.");
+                else
+                    result = as06Num1 / as06Num2;
+                    Debug.Log(result);
+                break;
+
+            default:
+             Debug.Log("Invalid operator. Please use +, -, *, or /.");
+             return;
+         }
     }
 
     public int as07Month;
     public void As07_GetSeason()
     {
-        // TODO: Implement logic to return season
-        // Example: Debug.Log("Summer");
-        throw new System.NotImplementedException();
+        if (as07Month >= 1 && as07Month <= 12)
+        {
+            if (as07Month == 12 || as07Month == 1 || as07Month == 2)
+                Debug.Log("It's Winter.");
+            else if (as07Month >= 3 && as07Month <= 5)
+                Debug.Log("It's Spring.");
+            else if (as07Month >= 6 && as07Month <= 8)
+                Debug.Log("It's Summer.");
+            else if (as07Month >= 9 && as07Month <= 11)
+                Debug.Log("It's Fall.");
+        }
+        else
+        {
+            Debug.Log("Invalid month number. Please enter a number between 1 \r\nand 12.");
+        }
     }
 
     public int as08Quantity;
@@ -82,7 +176,28 @@ public class Assignment : MonoBehaviour
     public int as08Payment;
     public void As08_PurchasingSystemExample()
     {
-        throw new System.NotImplementedException();
+        int change = 0;
+
+        if (as08Quantity <= 0)
+        {
+            Debug.Log("Out of this item");
+        }
+        else if (as08Quantity > 0)
+        {
+            if (as08Payment >= as08Price)
+            {
+                Debug.Log("You got this item");
+            }
+            if (as08Payment > as08Price)
+            {
+                change = as08Payment - as08Price;
+                Debug.Log($"You get change {change} bath");
+            }
+            else if (as08Payment < as08Price)
+            {
+                Debug.Log("Your money not enough");
+            }
+        }
     }
 
     public int as09UserChoice;
